@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.subsystems.DriveTrain;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -20,14 +21,20 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
+  final XboxController driverController = new XboxController(Constants.DRIVER_CONTROLLER_PORT);
 
 
-
-
+  public static DriveTrain driveTrain;
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
+
   public RobotContainer() {
+    driveTrain = new DriveTrain();
+
+
+
+
     // Configure the button bindings
     configureButtonBindings();
   }
@@ -40,6 +47,13 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
   }
+
+  public double getDriverRawAxis (int axis){
+    return this.driverController.getRawAxis(axis);
+
+  }
+
+
 
 
   /**

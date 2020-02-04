@@ -7,25 +7,42 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.SpeedController;
+import com.revrobotics.CANEncoder;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.EncoderType;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
+
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class DriveTrain extends SubsystemBase {
   /**
    * Creates a new DriveTrain.
    */
-  public DriveTrain() {
-    SpeedController m_frontLeft = new CANSparkMax(1);
-    SpeedController m_rearLeft = new CANSparkMax(2);
+  
+    CANSparkMax m_frontLeft = new CANSparkMax(Constants.FRONT_LEFT_DRIVE_ID, MotorType.kBrushless);
+    CANSparkMax m_rearLeft = new CANSparkMax(Constants.REAR_LEFT_DRIVE_ID, MotorType.kBrushless);
     SpeedControllerGroup m_left = new SpeedControllerGroup(m_frontLeft, m_rearLeft);
  
-    SpeedController m_frontRight = new CANSparkMax(3);
-    SpeedController m_rearRight = new CANSparkMax(4);
+    CANSparkMax m_frontRight = new CANSparkMax(Constants.FRONT_RIGHT_DRIVE_ID, MotorType.kBrushless);
+    CANSparkMax m_rearRight = new CANSparkMax(Constants.REAR_RIGHT_DRIVE_ID, MotorType.kBrushless);
     SpeedControllerGroup m_right = new SpeedControllerGroup(m_frontRight, m_rearRight);
  
     DifferentialDrive m_drive = new DifferentialDrive(m_left, m_right);
+
+    CANEncoder m_leftEncoder = m_frontLeft.getEncoder();
+    CANEncoder m_rightEncoder = m_frontRight.getEncoder();
+
+  public DriveTrain() {
+    
+  }
+
+   
+  public void arcadeDrive(double speed, double rotation) {
+    m_drive.arcadeDrive(speed, rotation);
   }
 
   @Override
