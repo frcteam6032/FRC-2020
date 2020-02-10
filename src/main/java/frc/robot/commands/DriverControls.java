@@ -30,7 +30,8 @@ public class DriverControls extends CommandBase {
   public void execute() {
     double speed = Robot.robotContainer.getDriverRawAxis(0);
     double rotation = Robot.robotContainer.getDriverRawAxis(1);
-    RobotContainer.driveTrain.arcadeDrive(speed, rotation);
+    boolean square = Robot.robotContainer.getDriverRawButton(1);
+    RobotContainer.driveTrain.arcadeDrive(speed, rotation, square);
   }
 
   // Called once the command ends or is interrupted.

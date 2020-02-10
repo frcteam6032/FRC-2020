@@ -9,7 +9,7 @@ package frc.robot.subsystems;
 
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.EncoderType;
+
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 
@@ -41,8 +41,8 @@ public class DriveTrain extends SubsystemBase {
   }
 
    
-  public void arcadeDrive(double speed, double rotation) {
-    m_drive.arcadeDrive(speed, rotation);
+  public void arcadeDrive(double speed, double rotation, boolean square) {
+    m_drive.arcadeDrive(speed, rotation, square);
   }
 
   @Override

@@ -22,4 +22,9 @@ public final class Constants {
 	public static final int FRONT_RIGHT_DRIVE_ID = 0;
 	public static final int REAR_RIGHT_DRIVE_ID = 0;
 	public static final int DRIVER_CONTROLLER_PORT = 0;
+	public static final int OPERATOR_CONTROLLER_PORT = 0;
+	public static final int INTAKE_MOTOR_ID = 0;
+	public static final int GATE_MOTOR_ID = 0;
+	public static final int CLIMBER_MOTOR_ID = 0;
+	
 }
