@@ -14,6 +14,8 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.SpinIntake;
+import frc.robot.commands.StopIntake;
 import frc.robot.subsystems.Belts;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.DriveTrain;
@@ -74,6 +76,10 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    oButtonA.whenPressed(new SpinIntake());
+    oButtonA.whenReleased(new StopIntake());
+
+
   }
 
   public double getDriverRawAxis (int axis){
