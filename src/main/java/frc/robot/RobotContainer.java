@@ -32,7 +32,13 @@ public class RobotContainer {
   final Joystick driverController = new Joystick(Constants.DRIVER_CONTROLLER_PORT);
   final Joystick operatorController = new Joystick(Constants.OPERATOR_CONTROLLER_PORT);
 
-  final Button driverButtonA = new JoystickButton(driverController, 1);
+  final Button oButtonA = new JoystickButton(this.operatorController, Constants.BUTTON_A);
+  final Button oButtonB = new JoystickButton(this.operatorController, Constants.BUTTON_B);
+  final Button oButtonX = new JoystickButton(this.operatorController, Constants.BUTTON_X);
+  final Button oButtonY = new JoystickButton(this.operatorController, Constants.BUTTON_Y);
+
+  final Button oButtonRightBumper = new JoystickButton(this.operatorController, Constants.RIGHT_BUMPER);
+  final Button oButtonLeftBumper= new JoystickButton(this.operatorController, Constants.LEFT_BUMPER);
 
   public static DriveTrain driveTrain;
   public static Intake intake;

@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.RobotContainer;
 
@@ -28,9 +29,9 @@ public class DriverControls extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double speed = Robot.robotContainer.getDriverRawAxis(0);
-    double rotation = Robot.robotContainer.getDriverRawAxis(1);
-    boolean square = Robot.robotContainer.getDriverRawButton(1);
+    double speed = Robot.robotContainer.getDriverRawAxis(Constants.LEFT_STICK_Y);
+    double rotation = Robot.robotContainer.getDriverRawAxis(Constants.LEFT_STICK_Y);
+    boolean square = Robot.robotContainer.getDriverRawButton(Constants.RIGHT_BUMPER);
     RobotContainer.driveTrain.arcadeDrive(speed, rotation, square);
   }
 
