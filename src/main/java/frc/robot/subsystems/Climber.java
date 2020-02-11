@@ -17,12 +17,15 @@ public class Climber extends SubsystemBase {
   /**
    * Creates a new Climber.
    */
-  CANSparkMax climberMotor = new CANSparkMax(Constants.CLIMBER_MOTOR_ID, MotorType.kBrushed);
+  private final CANSparkMax climberMotor = new CANSparkMax(Constants.CLIMBER_MOTOR_ID, MotorType.kBrushless);
   public Climber() {
 
   }
 
   public void setClimberMotor(double speed) {
+    if (speed < 0) {
+      speed = -0;
+    }
     climberMotor.set(speed);
   }
 

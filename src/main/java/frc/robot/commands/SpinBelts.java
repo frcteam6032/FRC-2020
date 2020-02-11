@@ -10,19 +10,21 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 
-public class StopIntake extends CommandBase {
+public class SpinBelts extends CommandBase {
   /**
-   * Creates a new StopIntake.
+   * Creates a new SpinBelts.
    */
-  public StopIntake() {
+  double m_speed;
+  public SpinBelts(double speed) {
+    m_speed = speed;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(RobotContainer.intake);
+    addRequirements(RobotContainer.belts);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    RobotContainer.intake.setIntake(0);
+    RobotContainer.belts.setBeltMotor(m_speed);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -33,6 +35,7 @@ public class StopIntake extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    RobotContainer.belts.setBeltMotor(0);
   }
 
   // Returns true when the command should end.

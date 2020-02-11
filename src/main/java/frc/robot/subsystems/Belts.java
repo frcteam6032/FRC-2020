@@ -17,7 +17,7 @@ public class Belts extends SubsystemBase {
   /**
    * Creates a new Belts.
    */
-  CANSparkMax beltMotor = new CANSparkMax(Constants.BELT_MOTOR_ID, MotorType.kBrushed);
+  private final CANSparkMax beltMotor = new CANSparkMax(Constants.BELT_MOTOR_ID, MotorType.kBrushed);
   public Belts() {
 
   }

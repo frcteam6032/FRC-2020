@@ -17,7 +17,7 @@ public class WheelOfFortune extends SubsystemBase {
   /**
    * Creates a new WheelOfFortune.
    */
-  CANSparkMax wheelMotor = new CANSparkMax(Constants.WHEEL_MOTOR_ID, MotorType.kBrushed);
+  private final CANSparkMax wheelMotor = new CANSparkMax(Constants.WHEEL_MOTOR_ID, MotorType.kBrushed);
   public WheelOfFortune() {
 
   }

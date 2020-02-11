@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -17,13 +18,18 @@ public class Gate extends SubsystemBase {
   /**
    * Creates a new Gate.
    */
-  CANSparkMax gateMotor = new CANSparkMax(Constants.GATE_MOTOR_ID, MotorType.kBrushed);
+  private final DigitalInput limitSwitch = new DigitalInput(Constants.GATE_LIMIT_SWITCH_CHANNEL);
+  private final CANSparkMax gateMotor = new CANSparkMax(Constants.GATE_MOTOR_ID, MotorType.kBrushed);
   public Gate() {
 
   }
 
   public void setGateMotor(double speed) {
     gateMotor.set(speed);
+  }
+
+  public boolean isSwitchSet() {
+    return limitSwitch.get();
   }
 
   @Override

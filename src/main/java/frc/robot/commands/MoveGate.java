@@ -10,19 +10,21 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 
-public class StopIntake extends CommandBase {
+public class MoveGate extends CommandBase {
   /**
-   * Creates a new StopIntake.
+   * Creates a new MoveGate.
    */
-  public StopIntake() {
+  double m_speed;
+  public MoveGate(double speed) {
+    m_speed = speed;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(RobotContainer.intake);
+    addRequirements(RobotContainer.gate);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    RobotContainer.intake.setIntake(0);
+    RobotContainer.gate.setGateMotor(m_speed);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -33,11 +35,12 @@ public class StopIntake extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    RobotContainer.gate.setGateMotor(0);
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return RobotContainer.gate.isSwitchSet();
   }
 }

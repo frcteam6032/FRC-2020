@@ -14,7 +14,11 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.Climb;
+import frc.robot.commands.MoveGate;
+import frc.robot.commands.SpinBelts;
 import frc.robot.commands.SpinIntake;
+import frc.robot.commands.SpinWheel;
 import frc.robot.commands.StopIntake;
 import frc.robot.subsystems.Belts;
 import frc.robot.subsystems.Climber;
@@ -76,9 +80,20 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    oButtonA.whenPressed(new SpinIntake());
+    oButtonA.whenPressed(new SpinIntake(0.3));
     oButtonA.whenReleased(new StopIntake());
 
+    oButtonB.whenPressed(new SpinBelts(0.3));
+    oButtonB.whenReleased(new SpinBelts(0));
+    
+    oButtonY.whenPressed(new Climb(-0.5));
+    oButtonY.whenReleased(new Climb(0));
+
+    oButtonX.whenPressed(new MoveGate(0.1));
+    oButtonX.whenReleased(new MoveGate(0));
+
+    oButtonRightBumper.whenPressed(new SpinWheel(0.5));
+    oButtonRightBumper.whenReleased(new SpinWheel(0));
 
   }
 
