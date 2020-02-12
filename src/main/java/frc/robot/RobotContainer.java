@@ -89,11 +89,14 @@ public class RobotContainer {
     oButtonY.whenPressed(new Climb(-0.5));
     oButtonY.whenReleased(new Climb(0));
 
-    oButtonX.whenPressed(new MoveGate(0.1));
-    oButtonX.whenReleased(new MoveGate(0));
+    oButtonLeftBumper.whenPressed(new MoveGate(0.1));
+    oButtonLeftBumper.whenReleased(new MoveGate(0));
 
-    oButtonRightBumper.whenPressed(new SpinWheel(0.5));
-    oButtonRightBumper.whenReleased(new SpinWheel(0));
+    oButtonRightBumper.whenPressed(new MoveGate(-0.1));
+    oButtonRightBumper.whenReleased(new MoveGate(0));
+
+    oButtonX.whenPressed(new SpinWheel(0.5));
+    oButtonX.whenReleased(new SpinWheel(0));
 
   }
 
