@@ -17,16 +17,16 @@ package frc.robot;
  */
 public final class Constants {
 
-	public static final int FRONT_LEFT_DRIVE_ID = 0;
-	public static final int REAR_LEFT_DRIVE_ID = 0;
-	public static final int FRONT_RIGHT_DRIVE_ID = 0;
-	public static final int REAR_RIGHT_DRIVE_ID = 0;
+	public static final int FRONT_LEFT_DRIVE_ID = 1;
+	public static final int REAR_LEFT_DRIVE_ID = 2;
+	public static final int FRONT_RIGHT_DRIVE_ID = 3;
+	public static final int REAR_RIGHT_DRIVE_ID = 4;
 	
-	public static final int INTAKE_MOTOR_ID = 0;
-	public static final int GATE_MOTOR_ID = 0;
+	public static final int INTAKE_MOTOR_ID = 5;
+	public static final int GATE_MOTOR_ID = 7;
 	public static final int CLIMBER_MOTOR_ID = 8;
 	public static final int WHEEL_MOTOR_ID = 9;
-	public static final int BELT_MOTOR_ID = 0;
+	public static final int BELT_MOTOR_ID = 6;
 
 	public static final int DRIVER_CONTROLLER_PORT = 0;
 	public static final int OPERATOR_CONTROLLER_PORT = 1;

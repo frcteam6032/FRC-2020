@@ -12,9 +12,11 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.commands.Climb;
+//import frc.robot.commands.Climb;
+import frc.robot.commands.DriverControls;
 import frc.robot.commands.MoveGate;
 import frc.robot.commands.SpinBelts;
 import frc.robot.commands.SpinIntake;
@@ -64,6 +66,7 @@ public class RobotContainer {
     wheelOfFortune = new WheelOfFortune();
     climber = new Climber();
     belts = new Belts();
+    CommandScheduler.getInstance().setDefaultCommand(driveTrain, new DriverControls());
 
 
 
@@ -80,14 +83,14 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    oButtonA.whenPressed(new SpinIntake(0.3));
+    oButtonA.whenPressed(new SpinIntake(0.4));
     oButtonA.whenReleased(new StopIntake());
 
-    oButtonB.whenPressed(new SpinBelts(0.3));
+    oButtonB.whenPressed(new SpinBelts(-0.3));
     oButtonB.whenReleased(new SpinBelts(0));
     
-    oButtonY.whenPressed(new Climb(-0.5));
-    oButtonY.whenReleased(new Climb(0));
+    //oButtonY.whenPressed(new Climb(-0.5));
+    //oButtonY.whenReleased(new Climb(0));
 
     oButtonLeftBumper.whenPressed(new MoveGate(0.1));
     oButtonLeftBumper.whenReleased(new MoveGate(0));
@@ -95,7 +98,7 @@ public class RobotContainer {
     oButtonRightBumper.whenPressed(new MoveGate(-0.1));
     oButtonRightBumper.whenReleased(new MoveGate(0));
 
-    oButtonX.whenPressed(new SpinWheel(0.5));
+    oButtonX.whenPressed(new SpinWheel(0.3));
     oButtonX.whenReleased(new SpinWheel(0));
 
   }
